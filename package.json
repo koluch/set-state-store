@@ -1,0 +1,39 @@
+{
+  "name": "set-state-store",
+  "version": "0.1.0",
+  "description": "Simple state-management library",
+  "main": "index.js",
+  "module": "index.es6",
+  "scripts": {
+    "test": "jest",
+    "build:esm": "babel src/index.js --no-babelrc --config-file ./babel.es6.json --out-file index.es6.js ",
+    "build:cjs": "babel src/index.js --no-babelrc --config-file ./babel.json --out-file index.js",
+    "build": "npm run build:esm && npm run build:cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koluch/set-state-store.git"
+  },
+  "author": "Nikolai Mavrenkov <koluch@koluch.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koluch/set-state-store/issues"
+  },
+  "homepage": "https://github.com/koluch/set-state-store#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-preset-minify": "^0.5.0",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
