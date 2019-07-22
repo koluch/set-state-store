@@ -62,5 +62,6 @@ typings/
 # next.js build output
 .next
 
-/index.es6.js
 /index.js
+/index.js.es6
+/index.js.flow

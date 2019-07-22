@@ -3,12 +3,15 @@
   "version": "0.1.1",
   "description": "Simple state-management library",
   "main": "index.js",
-  "module": "index.es6",
+  "module": "index.js.es6",
   "scripts": {
-    "test": "jest",
-    "build:esm": "babel src/index.js --no-babelrc --config-file ./babel.es6.json --out-file index.es6.js ",
+    "test:flow": "flow check",
+    "test:unit": "jest",
+    "test": "npm run test:flow && npm run test:unit",
+    "build:flow": "flow check && babel src/index.js --no-babelrc --config-file ./babel.flow.json --out-file index.js.flow",
+    "build:esm": "babel src/index.js --no-babelrc --config-file ./babel.es6.json --out-file index.js.es6",
     "build:cjs": "babel src/index.js --no-babelrc --config-file ./babel.json --out-file index.js",
-    "build": "npm run build:esm && npm run build:cjs"
+    "build": "npm run test && npm run build:flow && npm run build:esm && npm run build:cjs"
   },
   "repository": {
     "type": "git",
@@ -24,8 +27,11 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-flow": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-flow": "^7.0.0",
     "babel-preset-minify": "^0.5.0",
+    "flow-bin": "^0.103.0",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.1",
